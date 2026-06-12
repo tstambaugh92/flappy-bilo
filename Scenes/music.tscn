@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cwy3s7br8cs6n"]
+
+[ext_resource type="AudioStream" uid="uid://dtfn75ubw1uaw" path="res://Assets/sound/bliss.wav" id="1_fbmny"]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=1717145482]
+stream = ExtResource("1_fbmny")
+autoplay = true
