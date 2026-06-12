@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://beul32ucx8rf3"]
+
+[ext_resource type="PackedScene" uid="uid://0ipbufyancmb" path="res://Scenes/bilo.tscn" id="1_ebmjs"]
+[ext_resource type="Script" uid="uid://2opmpldy6y01" path="res://Scripts/game.gd" id="1_wrm1d"]
+[ext_resource type="PackedScene" uid="uid://bligvcbnsnddd" path="res://Scenes/water_bear.tscn" id="2_qxrlw"]
+
+[node name="Node2D" type="Node2D" unique_id=1587279252]
+script = ExtResource("1_wrm1d")
+
+[node name="Bilo" parent="." unique_id=399946387 instance=ExtResource("1_ebmjs")]
+position = Vector2(94.00001, 249)
+scale = Vector2(0.1, 0.1)
+
+[node name="water_bears" parent="." unique_id=1630650759 instance=ExtResource("2_qxrlw")]
+position = Vector2(346, 233)
+
+[node name="Timer" type="Timer" parent="." unique_id=191734458]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

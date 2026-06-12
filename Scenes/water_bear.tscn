@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://bligvcbnsnddd"]
+
+[ext_resource type="Script" uid="uid://c4s8b61gux0yk" path="res://Scripts/water_bear.gd" id="1_g7adj"]
+[ext_resource type="Texture2D" uid="uid://dvysggy2kxi03" path="res://Assets/images/water_bear_head.png" id="1_jsces"]
+[ext_resource type="Texture2D" uid="uid://bw3cmpnchs2g4" path="res://Assets/images/water_bear_body.png" id="3_akvgq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akvgq"]
+atlas = ExtResource("1_jsces")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6huwh"]
+atlas = ExtResource("1_jsces")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p8ew2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akvgq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6huwh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8ew2"]
+atlas = ExtResource("3_akvgq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eca6"]
+atlas = ExtResource("3_akvgq")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twpqg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8ew2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eca6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akvgq"]
+size = Vector2(114, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6huwh"]
+size = Vector2(114, 119)
+
+[node name="water_bears" type="Node2D" unique_id=1630650759]
+script = ExtResource("1_g7adj")
+
+[node name="Lower Bear" type="Area2D" parent="." unique_id=1903113943]
+
+[node name="WaterBearHead" type="AnimatedSprite2D" parent="Lower Bear" unique_id=332743872]
+position = Vector2(0, 150)
+sprite_frames = SubResource("SpriteFrames_p8ew2")
+autoplay = "default"
+frame_progress = 0.10562982
+
+[node name="WaterBearBody" type="AnimatedSprite2D" parent="Lower Bear" unique_id=1346191625]
+position = Vector2(0, 278)
+sprite_frames = SubResource("SpriteFrames_twpqg")
+autoplay = "default"
+frame_progress = 0.008316947
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lower Bear" unique_id=1231537497]
+position = Vector2(0, 153)
+shape = SubResource("RectangleShape2D_akvgq")
+debug_color = Color(0.8901107, 0.0002575958, 0.7957136, 0.41960785)
+
+[node name="Upper Bear" type="Area2D" parent="." unique_id=1748496404]
+rotation = 3.1415927
+
+[node name="WaterBearHead" type="AnimatedSprite2D" parent="Upper Bear" unique_id=212619844]
+position = Vector2(0, 150)
+sprite_frames = SubResource("SpriteFrames_p8ew2")
+autoplay = "default"
+frame_progress = 0.84848404
+
+[node name="WaterBearBody" type="AnimatedSprite2D" parent="Upper Bear" unique_id=651443853]
+position = Vector2(0, 278)
+sprite_frames = SubResource("SpriteFrames_twpqg")
+autoplay = "default"
+frame_progress = 0.75118953
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Upper Bear" unique_id=925384033]
+position = Vector2(0, 153)
+shape = SubResource("RectangleShape2D_6huwh")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=773176855]
+rect = Rect2(-64, -10, 128, 20)
+
+[connection signal="body_entered" from="Lower Bear" to="." method="_on_lower_bear_body_entered"]
+[connection signal="body_entered" from="Upper Bear" to="." method="_on_lower_bear_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

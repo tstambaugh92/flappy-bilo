@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://0ipbufyancmb"]
+
+[ext_resource type="Texture2D" uid="uid://cg5xfmv5snvok" path="res://Assets/images/bilo.png" id="1_t64um"]
+[ext_resource type="Script" uid="uid://bsbhb50c1h6im" path="res://Scripts/bilo.gd" id="2_gdlyq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdlyq"]
+size = Vector2(830.5, 633)
+
+[node name="Bilo" type="CharacterBody2D" unique_id=399946387]
+script = ExtResource("2_gdlyq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=767878427]
+texture = ExtResource("1_t64um")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1554680566]
+position = Vector2(-10.25, 84.5)
+shape = SubResource("RectangleShape2D_gdlyq")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=818166572]
+position = Vector2(-416, -221)
+rect = Rect2(-10, -10, 830, 633)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
