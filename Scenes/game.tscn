@@ -3,9 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://0ipbufyancmb" path="res://Scenes/bilo.tscn" id="1_ebmjs"]
 [ext_resource type="Script" uid="uid://2opmpldy6y01" path="res://Scripts/game.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://bligvcbnsnddd" path="res://Scenes/water_bear.tscn" id="2_qxrlw"]
+[ext_resource type="PackedScene" uid="uid://c22q5f6cxrisu" path="res://Scenes/cloud_gen.tscn" id="4_3dryh"]
 
 [node name="Node2D" type="Node2D" unique_id=1587279252]
 script = ExtResource("1_wrm1d")
+
+[node name="Clouds" parent="." unique_id=969467300 instance=ExtResource("4_3dryh")]
 
 [node name="Bilo" parent="." unique_id=399946387 instance=ExtResource("1_ebmjs")]
 position = Vector2(94.00001, 249)

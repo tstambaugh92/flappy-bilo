@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 	rotation_degrees = rotation_degrees + 90.0 * delta
 
 	if Input.is_action_just_pressed("jump"):
-		#velocity.y += - jumpForce
 		velocity.y = - jumpForce
 		
 	move_and_slide()
