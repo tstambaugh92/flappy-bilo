@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var gravity : float = 981
-var jumpForce : float = 600
+var jumpForce : float = 350
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,10 +17,12 @@ func _physics_process(delta: float) -> void:
 	rotation_degrees = rotation_degrees + 90.0 * delta
 
 	if Input.is_action_just_pressed("jump"):
-		velocity.y += - jumpForce
+		#velocity.y += - jumpForce
+		velocity.y = - jumpForce
 		
 	move_and_slide()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	#die if you fall off the screen
 	get_tree().reload_current_scene()

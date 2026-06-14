@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bsbhb50c1h6im" path="res://Scripts/bilo.gd" id="2_gdlyq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdlyq"]
-size = Vector2(830.5, 633)
+size = Vector2(675, 581)
 
 [node name="Bilo" type="CharacterBody2D" unique_id=399946387]
 script = ExtResource("2_gdlyq")
@@ -14,7 +14,7 @@ texture = ExtResource("1_t64um")
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1554680566]
-position = Vector2(-10.25, 84.5)
+position = Vector2(67.5, 58.5)
 shape = SubResource("RectangleShape2D_gdlyq")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=818166572]
