@@ -6,7 +6,8 @@
 script = ExtResource("1_pv5n5")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1080517608]
+texture_filter = 2
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1330184286]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Sprite2D" unique_id=1330184286]
 
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_exited" from="Sprite2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

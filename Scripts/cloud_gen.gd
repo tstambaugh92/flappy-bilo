@@ -20,10 +20,13 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	print("Attenmpting to spawn cloud")
+	spawn_cloud()
+	timer.wait_time = original_wait + randf_range(-1,1)
+
+func spawn_cloud() -> void:
 	var cloud_texture : Texture2D = CLOUD_IMGS.pick_random()
 	var new_cloud := cloud_template.instantiate()
 	var sprite := new_cloud.get_node("Sprite2D") as Sprite2D
 	sprite.texture = cloud_texture
 	add_child(new_cloud)
-	timer.wait_time = original_wait + randf_range(-3,3)
+	pass
