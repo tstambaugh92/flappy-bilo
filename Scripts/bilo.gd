@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 var gravity : float = 981
 var jumpForce : float = 350
 
@@ -24,4 +25,13 @@ func _physics_process(delta: float) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	#die if you fall off the screen
-	get_tree().reload_current_scene()
+	print_debug("I should be dying")
+	var err := get_tree().change_scene_to_file("res://Scenes/title.tscn")
+	print_debug("Error: " + error_string(err))
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print_debug("Touched: ", area.name, " kill? ", area.is_in_group("kill"))
+	if area.is_in_group("kill"):
+		var err := get_tree().change_scene_to_file("res://Scenes/title.tscn")
+		print_debug("Error: " + error_string(err))

@@ -12,7 +12,7 @@ func _ready() -> void:
 	var sprite : Sprite2D = $Sprite2D
 	speed = randf_range(min_speed,max_speed)
 	var movement_percentage = inverse_lerp(min_speed,max_speed,speed)
-	var local_scale : int = round(lerp(1.0,4.0,movement_percentage))
+	var local_scale : int = round(lerp(1.0,3.0,movement_percentage))
 	sprite.scale = Vector2(local_scale,local_scale)
 	
 	#Move to the right of the screen, faster clouds on the bottom

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ckfj807imkj70"]
+
+[ext_resource type="Script" uid="uid://dxx4vnn2wpwcb" path="res://Scripts/title.gd" id="1_fp2oq"]
+[ext_resource type="Texture2D" uid="uid://ci1olefxtapdf" path="res://Assets/images/Bilo Logo.png" id="1_w31pl"]
+[ext_resource type="PackedScene" uid="uid://c22q5f6cxrisu" path="res://Scenes/cloud_gen.tscn" id="2_fp2oq"]
+
+[node name="Node2D" type="Node2D" unique_id=2141741260]
+script = ExtResource("1_fp2oq")
+
+[node name="Clouds" parent="." unique_id=969467300 instance=ExtResource("2_fp2oq")]
+
+[node name="BiloLogo" type="Sprite2D" parent="." unique_id=777822360]
+texture_filter = 4
+position = Vector2(318, 212)
+scale = Vector2(0.27148438, 0.27148438)
+texture = ExtResource("1_w31pl")

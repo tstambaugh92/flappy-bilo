@@ -15,6 +15,9 @@ func _ready() -> void:
 	var lower_distance: float = screen_height - (lower_body.global_position.y + lower_body_height / 2.0)
 	var upper_distance: float = upper_body.global_position.y - upper_body_height / 2.0
 
+	$"Lower Bear".add_to_group("kill")
+	$"Upper Bear".add_to_group("kill")
+
 	add_body_segments(lower_body, lower_distance, lower_body_height,lower_collider)
 	add_body_segments(upper_body, upper_distance, upper_body_height,upper_collider)
 
@@ -60,6 +63,3 @@ func _physics_process(delta: float) -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
-
-func _on_lower_bear_body_entered(body: Node2D) -> void:
-	get_tree().reload_current_scene()
