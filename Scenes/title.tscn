@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://dxx4vnn2wpwcb" path="res://Scripts/title.gd" id="1_fp2oq"]
 [ext_resource type="Texture2D" uid="uid://ci1olefxtapdf" path="res://Assets/images/Bilo Logo.png" id="1_w31pl"]
 [ext_resource type="PackedScene" uid="uid://c22q5f6cxrisu" path="res://Scenes/cloud_gen.tscn" id="2_fp2oq"]
+[ext_resource type="FontFile" uid="uid://cm00b3n160vij" path="res://Assets/font/danielbd.ttf" id="4_q2qps"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yosvi"]
+font = ExtResource("4_q2qps")
+font_size = 25
 
 [node name="Node2D" type="Node2D" unique_id=2141741260]
 script = ExtResource("1_fp2oq")
@@ -14,3 +19,20 @@ texture_filter = 4
 position = Vector2(318, 212)
 scale = Vector2(0.27148438, 0.27148438)
 texture = ExtResource("1_w31pl")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1249506222]
+offset_right = 247.0
+offset_bottom = 69.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1174648974]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer" unique_id=12106208]
+layout_mode = 2
+size_flags_vertical = 1
+text = "High Score = 0"
+label_settings = SubResource("LabelSettings_yosvi")
+horizontal_alignment = 2
+vertical_alignment = 1

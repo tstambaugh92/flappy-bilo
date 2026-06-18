@@ -17,3 +17,6 @@ in writing.
 Bilo(TM), the Bilo character, and associated branding are trademarks of
 Thomas Stambaugh. The source-code license grants no trademark rights.
 Contact: stambtx@proton.me
+
+Daniel font provides their license as a PDF included in this repo and builds
+in the font folder. A link to their website to read more is included in [CREDITS.md](../CREDITS.md)

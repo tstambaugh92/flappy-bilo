@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btn28puhb4jk3"
-path="res://.godot/imported/Fat Cloud.png-bdb9a76904ab7d27d36880dcfdb4d29a.ctex"
+uid="uid://but5xj3i4r81l"
+path="res://.godot/imported/Judgemental Cloud.png-777fe59d11a3eb21665f5b63912a7f3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/images/Fat Cloud.png"
-dest_files=["res://.godot/imported/Fat Cloud.png-bdb9a76904ab7d27d36880dcfdb4d29a.ctex"]
+source_file="res://Assets/images/Clouds/Judgemental Cloud.png"
+dest_files=["res://.godot/imported/Judgemental Cloud.png-777fe59d11a3eb21665f5b63912a7f3e.ctex"]
 
 [params]
 

@@ -4,6 +4,11 @@
 [ext_resource type="Script" uid="uid://2opmpldy6y01" path="res://Scripts/game.gd" id="1_wrm1d"]
 [ext_resource type="PackedScene" uid="uid://bligvcbnsnddd" path="res://Scenes/water_bear.tscn" id="2_qxrlw"]
 [ext_resource type="PackedScene" uid="uid://c22q5f6cxrisu" path="res://Scenes/cloud_gen.tscn" id="4_3dryh"]
+[ext_resource type="FontFile" uid="uid://cm00b3n160vij" path="res://Assets/font/danielbd.ttf" id="5_wowpa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i6g32"]
+font = ExtResource("5_wowpa")
+font_size = 50
 
 [node name="Node2D" type="Node2D" unique_id=1587279252]
 script = ExtResource("1_wrm1d")
@@ -20,5 +25,22 @@ position = Vector2(346, 233)
 [node name="Timer" type="Timer" parent="." unique_id=191734458]
 wait_time = 4.0
 autostart = true
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=522814339]
+offset_right = 358.5
+offset_bottom = 115.0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=944186298]
+layout_mode = 2
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 10
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer" unique_id=1596644471]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Score = 0"
+label_settings = SubResource("LabelSettings_i6g32")
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

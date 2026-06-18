@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://but5xj3i4r81l"
-path="res://.godot/imported/Judgemental Cloud.png-73332071378ed32b71b1723c724a3f47.ctex"
+uid="uid://domnwfm80kyas"
+path="res://.godot/imported/boofy cloud.png-67d8c795cd42f06b99f769771de6fde2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/images/Judgemental Cloud.png"
-dest_files=["res://.godot/imported/Judgemental Cloud.png-73332071378ed32b71b1723c724a3f47.ctex"]
+source_file="res://Assets/images/Clouds/boofy cloud.png"
+dest_files=["res://.godot/imported/boofy cloud.png-67d8c795cd42f06b99f769771de6fde2.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

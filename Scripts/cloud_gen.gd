@@ -1,8 +1,10 @@
 extends Node2D
 
 const CLOUD_IMGS := [
-	preload("res://Assets/images/Fat Cloud.png"),
-	preload("res://Assets/images/Judgemental Cloud.png")
+	preload("res://Assets/images/Clouds/Fat Cloud.png"),
+	preload("res://Assets/images/Clouds/Judgemental Cloud.png"),
+	preload("res://Assets/images/Clouds/boofy cloud.png"),
+	preload("res://Assets/images/Clouds/potatocloud.png"),
 ]
 
 var cloud_template : PackedScene = preload("res://Scenes/single_cloud.tscn")

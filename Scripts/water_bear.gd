@@ -17,6 +17,7 @@ func _ready() -> void:
 
 	$"Lower Bear".add_to_group("kill")
 	$"Upper Bear".add_to_group("kill")
+	$"ScoreArea".add_to_group("score")
 
 	add_body_segments(lower_body, lower_distance, lower_body_height,lower_collider)
 	add_body_segments(upper_body, upper_distance, upper_body_height,upper_collider)

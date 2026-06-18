@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cg5xfmv5snvok" path="res://Assets/images/bilo.png" id="1_t64um"]
 [ext_resource type="Script" uid="uid://bsbhb50c1h6im" path="res://Scripts/bilo.gd" id="2_gdlyq"]
+[ext_resource type="AudioStream" uid="uid://cp1gbr26ro33d" path="res://Assets/sound/death.wav" id="3_vhur6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdlyq"]
 size = Vector2(613, 531)
@@ -23,6 +24,9 @@ shape = SubResource("RectangleShape2D_gdlyq")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=818166572]
 position = Vector2(-406, -214)
 rect = Rect2(-27, -290, 899, 979)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=448373487]
+stream = ExtResource("3_vhur6")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
