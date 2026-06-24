@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://dntv4wg2cpwh8"]
+
+[ext_resource type="AudioStream" uid="uid://jbqlo4jq25ot" path="res://Assets/sound/intro.wav" id="1_3bmuq"]
+[ext_resource type="Texture2D" uid="uid://dggalmmvy50vq" path="res://Assets/images/Letters/B.png" id="2_nn7w8"]
+[ext_resource type="Texture2D" uid="uid://kjs45ty5nbvr" path="res://Assets/images/Letters/i base.png" id="3_b26wi"]
+[ext_resource type="Texture2D" uid="uid://dxuj0stc56qqa" path="res://Assets/images/Letters/L.png" id="4_ewknp"]
+[ext_resource type="Texture2D" uid="uid://ceudvkv7hd2u1" path="res://Assets/images/Letters/o.png" id="5_a7jvs"]
+[ext_resource type="Texture2D" uid="uid://uo23m3ek8eyo" path="res://Assets/images/Letters/i top.png" id="6_pgam6"]
+[ext_resource type="Texture2D" uid="uid://cg5xfmv5snvok" path="res://Assets/images/bilo.png" id="7_itfcf"]
+
+[sub_resource type="Animation" id="Animation_nn7w8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Logo Root/B:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 2000)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Logo Root/B:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.6)]
+}
+
+[sub_resource type="Animation" id="Animation_3bmuq"]
+resource_name = "logo"
+length = 8.0
+markers = [{
+"color": Color(1, 1, 1, 1),
+"name": &"new_marker",
+"time": -0.26666665
+}]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Logo Root/B:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.61333334, 0.9113, 1.203206),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2000), Vector2(50, 2150), Vector2(0, 2000)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Logo Root/B:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.60333335, 0.9113482, 1.2032),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.2, 0.72), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nn7w8"]
+_data = {
+&"RESET": SubResource("Animation_nn7w8"),
+&"logo": SubResource("Animation_3bmuq")
+}
+
+[node name="Intro" type="Node2D" unique_id=685461218]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=660614619]
+stream = ExtResource("1_3bmuq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1198698997]
+libraries/ = SubResource("AnimationLibrary_nn7w8")
+
+[node name="Logo Root" type="Node2D" parent="." unique_id=42778663]
+
+[node name="B" type="Sprite2D" parent="Logo Root" unique_id=1869368680]
+position = Vector2(0, 2000)
+scale = Vector2(1, 0.6)
+texture = ExtResource("2_nn7w8")
+
+[node name="i body" type="Sprite2D" parent="Logo Root" unique_id=1744894360]
+texture = ExtResource("3_b26wi")
+
+[node name="L" type="Sprite2D" parent="Logo Root" unique_id=1872537599]
+texture = ExtResource("4_ewknp")
+
+[node name="Bilo" type="Sprite2D" parent="Logo Root" unique_id=242029735]
+position = Vector2(497.99997, 38.999992)
+rotation = 0.26354474
+scale = Vector2(0.2910156, 0.2910156)
+texture = ExtResource("7_itfcf")
+
+[node name="o" type="Sprite2D" parent="Logo Root" unique_id=831465388]
+texture = ExtResource("5_a7jvs")
+
+[node name="i dot" type="Sprite2D" parent="Logo Root" unique_id=1521615013]
+texture = ExtResource("6_pgam6")
