@@ -4,4 +4,3 @@
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" unique_id=1717145482]
 stream = ExtResource("1_fbmny")
-autoplay = true

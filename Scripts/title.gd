@@ -5,12 +5,15 @@ var score_width : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var bg_music : AudioStreamPlayer2D = $"/root/Music"
+	if not bg_music.playing:
+		bg_music.play()
 	var sprite : Sprite2D = $BiloLogo
 	position_title_sprite(sprite)
 	score_width = $PanelContainer.size.x
 	if Score.high_score == 0:
 		Score.load_high_score()
-	$PanelContainer/MarginContainer/Label.text = "High Score: " + str(Score.high_score)
+	$"PanelContainer/MarginContainer/High Score Text".text = "High Score: " + str(Score.high_score)
 	resize_score_box()
 	get_viewport().size_changed.connect(_on_viewport_size_changed)
 	#I dont like mixing code signals with godot signals but I don't know how to 
@@ -30,6 +33,7 @@ func _process(delta: float) -> void:
 
 
 func position_title_sprite(sprite: Sprite2D) -> void:
+	#Center the logo vertically and 10% from the top
 	var viewport_size := get_viewport_rect().size
 	var texture_size := sprite.texture.get_size()
 
@@ -42,6 +46,13 @@ func position_title_sprite(sprite: Sprite2D) -> void:
 	sprite.position = Vector2(
 		viewport_size.x * 0.5,
 		viewport_size.y * 0.1 + scaled_height / 2.0
+	)
+
+	$"Start Text".position = Vector2(
+		#Should I default to assigninig these to var before
+		#mutating them? That feels proper
+		(viewport_size.x - $"Start Text".size.x) * .5,
+		sprite.position.y + scaled_height * .5 + 10
 	)
 
 func _on_viewport_size_changed() -> void:
@@ -61,3 +72,7 @@ func resize_score_box() -> void:
 	
 	pan_con.position[0] = get_viewport_rect().size.x - pan_con.size.x
 	pan_con.z_index = 1
+
+
+func _on_timer_timeout() -> void:
+	$"Start Text".visible = ! $"Start Text".visible

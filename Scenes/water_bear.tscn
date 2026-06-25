@@ -49,13 +49,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_akvgq"]
-size = Vector2(114, 119)
+size = Vector2(110, 111.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6huwh"]
-size = Vector2(114, 119)
+size = Vector2(108.000015, 111.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8ew2"]
-size = Vector2(20, 201)
+size = Vector2(23, 206)
 
 [node name="water_bears" type="Node2D" unique_id=1630650759]
 script = ExtResource("1_g7adj")
@@ -75,7 +75,7 @@ autoplay = "default"
 frame_progress = 0.008316947
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lower Bear" unique_id=1231537497]
-position = Vector2(0, 153)
+position = Vector2(-2, 156.75)
 shape = SubResource("RectangleShape2D_akvgq")
 debug_color = Color(0.8901107, 0.0002575958, 0.7957136, 0.41960785)
 
@@ -95,7 +95,7 @@ autoplay = "default"
 frame_progress = 0.75118953
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Upper Bear" unique_id=925384033]
-position = Vector2(0, 153)
+position = Vector2(-2.9999926, 156.75)
 shape = SubResource("RectangleShape2D_6huwh")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=773176855]
@@ -104,7 +104,7 @@ rect = Rect2(-64, -10, 128, 20)
 [node name="ScoreArea" type="Area2D" parent="." unique_id=80489424]
 
 [node name="ScoreHitBox" type="CollisionShape2D" parent="ScoreArea" unique_id=888028957]
-position = Vector2(67, -4.5)
+position = Vector2(65.5, -2)
 shape = SubResource("RectangleShape2D_p8ew2")
 
 [connection signal="body_entered" from="Lower Bear" to="." method="_on_lower_bear_body_entered"]

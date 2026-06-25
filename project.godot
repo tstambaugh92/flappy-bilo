@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Flappy Bilo"
-run/main_scene="uid://ckfj807imkj70"
+run/main_scene="uid://dntv4wg2cpwh8"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
