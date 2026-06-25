@@ -24,9 +24,13 @@ func save_high_score() -> void:
 	else:
 		file.store_32(high_score)
 		file.flush()
+		file = null
 
 	if OS.has_feature("web"):
+		JavaScriptBridge.force_fs_sync()
 		save_high_score_to_web_storage()
+		if not OS.is_userfs_persistent():
+			push_warning("Browser storage is not persistent. High score may not survive reloads on this device/browser.")
 
 func load_high_score() -> void:
 	if high_score_loaded:
