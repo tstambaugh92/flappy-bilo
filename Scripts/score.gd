@@ -5,7 +5,7 @@ var last_score : int = 0
 var printed_score : int = 0
 # Called when the node enters the scene tree for the first time.
 
-var PATH := "user://score.save"
+const PATH := "user://score.save"
 
 func _ready() -> void:
 	pass # Replace with function body.
@@ -17,12 +17,16 @@ func _process(delta: float) -> void:
 
 func save_high_score() -> void:
 	var file := FileAccess.open(PATH,FileAccess.WRITE)
+	if file == null:
+		push_warning("Could not save high score: " + error_string(FileAccess.get_open_error()))
+		return
 	file.store_32(high_score)
+	file.flush()
 
 func load_high_score() -> void:
 	if high_score == 0:
 		var file := FileAccess.open(PATH,FileAccess.READ)
 		if file == null:
-			print_debug("No Save Found")
+			print_debug("No save found: " + error_string(FileAccess.get_open_error()))
 			return
 		high_score = file.get_32()

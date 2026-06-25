@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ceudvkv7hd2u1" path="res://Assets/images/Letters/o.png" id="5_a7jvs"]
 [ext_resource type="Texture2D" uid="uid://uo23m3ek8eyo" path="res://Assets/images/Letters/i top.png" id="6_pgam6"]
 [ext_resource type="Texture2D" uid="uid://cg5xfmv5snvok" path="res://Assets/images/bilo.png" id="7_itfcf"]
+[ext_resource type="FontFile" uid="uid://cm00b3n160vij" path="res://Assets/font/danielbd.ttf" id="9_b26wi"]
 
 [sub_resource type="Animation" id="Animation_nn7w8"]
 length = 0.001
@@ -374,6 +375,10 @@ _data = {
 &"logo": SubResource("Animation_3bmuq")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_ewknp"]
+font = ExtResource("9_b26wi")
+font_size = 32
+
 [node name="Intro" type="Node2D" unique_id=685461218]
 script = ExtResource("1_nn7w8")
 
@@ -413,5 +418,15 @@ texture = ExtResource("6_pgam6")
 [node name="L" type="Sprite2D" parent="Logo Root" unique_id=1872537599]
 texture_filter = 4
 texture = ExtResource("4_ewknp")
+
+[node name="Label" type="Label" parent="." unique_id=2013506786]
+offset_left = 82.0
+offset_top = 43.0
+offset_right = 539.0
+offset_bottom = 216.0
+text = "TAP TO START"
+label_settings = SubResource("LabelSettings_ewknp")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

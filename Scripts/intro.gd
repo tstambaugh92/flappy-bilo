@@ -9,10 +9,17 @@ const TOP_RATIO := 0.1
 
 var title_screen : PackedScene = preload("res://Scenes/title.tscn")
 var final_logo_bounds := Rect2()
-
+var waiting : bool = false
+var playing : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if OS.has_feature("web"):
+		waiting = true
+	if waiting:
+		logo_root.visible = false
+
+func start_intro() -> void:
 	var bg_music : AudioStreamPlayer2D = get_node("/root/Music")
 	bg_music.stream_paused = true
 	final_logo_bounds = calculate_final_logo_bounds()
@@ -20,8 +27,6 @@ func _ready() -> void:
 	get_viewport().size_changed.connect(position_logo)
 	animation_player.play(LOGO_ANIMATION)
 	bg_music.stream_paused = true
-
-
 
 func position_logo() -> void:
 	#The goal here is to land this fucking thing in the same
@@ -50,8 +55,17 @@ func _process(delta: float) -> void:
 		position_logo()
 
 	if Input.is_action_just_pressed("jump"):
-		_on_animation_player_animation_finished("Skip this shit")
+		if waiting:
+			waiting = false
+		else:
+			_on_animation_player_animation_finished("Skip this shit")
 
+	if not playing and not waiting:
+		playing = true
+		start_intro()
+		waiting = false
+		$Label.visible = false
+		logo_root.visible = true
 
 func calculate_final_logo_bounds() -> Rect2:
 	animation_player.play(LOGO_ANIMATION)
