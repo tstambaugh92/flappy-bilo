@@ -8,7 +8,7 @@ audio, fonts, and other media assets are all rights reserved by their
 respective copyright owners. No permission is granted to copy, modify,
 redistribute, sublicense, or use these assets outside this project.
 
-Copyright (C) 2026 Thomas Stambaugh and respective contributors.
+Copyright (C) 2026 Thomas Stambaugh.
 
 Select artwork was created by Cristian Lopez and is included with permission.
 Cristian Lopez retains copyright in his contributions unless otherwise agreed

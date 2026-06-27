@@ -1,11 +1,11 @@
 extends Node2D
 
 const LOGO_ANIMATION := "logo"
-const TARGET_WIDTH_RATIO := 0.5
-const TOP_RATIO := 0.1
+const TARGET_WIDTH_RATIO : float = 0.5
+const TOP_RATIO : float = 0.1
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var logo_root: Node2D = $"Logo Root"
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
+@onready var logo_root : Node2D = $"Logo Root"
 
 var title_screen : PackedScene = preload("res://Scenes/title.tscn")
 var final_logo_bounds := Rect2()
@@ -64,7 +64,7 @@ func _process(delta: float) -> void:
 		playing = true
 		start_intro()
 		waiting = false
-		$Label.visible = false
+		$"Web Text".visible = false
 		logo_root.visible = true
 
 func calculate_final_logo_bounds() -> Rect2:

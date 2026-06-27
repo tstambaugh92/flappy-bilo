@@ -419,7 +419,7 @@ texture = ExtResource("6_pgam6")
 texture_filter = 4
 texture = ExtResource("4_ewknp")
 
-[node name="Label" type="Label" parent="." unique_id=2013506786]
+[node name="Web Text" type="Label" parent="." unique_id=2013506786]
 offset_left = 82.0
 offset_top = 43.0
 offset_right = 539.0

@@ -14,6 +14,11 @@ font_color = Color(0, 0, 1, 1)
 font = ExtResource("4_q2qps")
 font_size = 25
 
+[sub_resource type="LabelSettings" id="LabelSettings_2qdx2"]
+font = ExtResource("4_q2qps")
+font_size = 24
+font_color = Color(0, 0, 1, 1)
+
 [node name="Node2D" type="Node2D" unique_id=2141741260]
 script = ExtResource("1_fp2oq")
 
@@ -55,5 +60,11 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="." unique_id=1663040153]
 wait_time = 0.69
 autostart = true
+
+[node name="Credits" type="Label" parent="." unique_id=1074458652]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Copyright 2026 Thomas Stambaugh"
+label_settings = SubResource("LabelSettings_2qdx2")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
