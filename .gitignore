@@ -5,3 +5,6 @@
 
 # VS Code workspace settings
 /.vscode/
+
+# Temporary editor backup files
+*~
