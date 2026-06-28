@@ -20,13 +20,20 @@ func _ready() -> void:
 		logo_root.visible = false
 
 func start_intro() -> void:
-	var bg_music : AudioStreamPlayer2D = get_node("/root/Music")
+	while not is_inside_tree():
+		await tree_entered
+
+	var bg_music : AudioStreamPlayer2D = get_node_or_null("/root/Music") as AudioStreamPlayer2D
+	while bg_music == null:
+		await get_tree().process_frame
+		bg_music = get_node_or_null("/root/Music") as AudioStreamPlayer2D
+	#The above shit is due to, if i hit space as soon as the game starts loading
+	#it tries to pause the bg music before it exists. 
 	bg_music.stream_paused = true
 	final_logo_bounds = calculate_final_logo_bounds()
 	position_logo()
 	get_viewport().size_changed.connect(position_logo)
 	animation_player.play(LOGO_ANIMATION)
-	bg_music.stream_paused = true
 
 func position_logo() -> void:
 	#The goal here is to land this fucking thing in the same

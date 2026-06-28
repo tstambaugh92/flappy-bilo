@@ -6,11 +6,11 @@ var jumpForce : float = 350
 var score : int = 0
 var rotation_degrees_per_sec : float = 0 #deg/s
 const rotation_impulse : float = 60.0 #deg/s - The amount added by a jump
-const rotation_slow : float = rotation_impulse / 0.85 #degrees/s^2, divided by X seconds to decay over that time
+const rotation_slow : float = rotation_impulse / 0.7 #degrees/s^2, divided by X seconds to decay over that time
 #These numbers were all just played with until one set felt good.
 
-
 @onready var animation : AnimatedSprite2D = $"BilosAnimation"
+@onready var death_sound : AudioStreamPlayer2D = $"DeathSound"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,10 +31,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y = - jumpForce
 		if not animation.is_playing():
 			animation.play("jump")
-			rotation_degrees_per_sec += rotation_impulse
 			if rotation_degrees_per_sec > 360.0:
 				rotation_degrees_per_sec = 360.0
-
+		rotation_degrees_per_sec += rotation_impulse
 	rotation_degrees += rotation_degrees_per_sec * delta #we're in radians, I guess
 			
 		
@@ -60,9 +59,13 @@ func die() -> void:
 	var bg_music : AudioStreamPlayer2D = get_node("/root/Music")
 	get_tree().paused = true
 	bg_music.stream_paused = true
-	$AudioStreamPlayer2D.process_mode = Node.PROCESS_MODE_ALWAYS #play music when the game is paused
-	$AudioStreamPlayer2D.play()
-	await $AudioStreamPlayer2D.finished
+	death_sound.process_mode = Node.PROCESS_MODE_ALWAYS #play music when the game is paused
+	death_sound.play()
+	animation.process_mode = Node.PROCESS_MODE_ALWAYS
+	animation.play("die")
+	await death_sound.finished
+	await animation.animation_finished
+	await get_tree().create_timer(1.0, true, false, true).timeout
 	get_tree().paused = false
 	bg_music.stream_paused = false
 	Score.last_score = score
