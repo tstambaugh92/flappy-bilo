@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://3vueiflwlxdt" path="res://Scripts/lore_dump.gd" id="1_lr2j5"]
 [ext_resource type="Texture2D" uid="uid://cg5xfmv5snvok" path="res://Assets/images/bilo.png" id="1_yjdjk"]
 [ext_resource type="Texture2D" uid="uid://bouaam65w5goq" path="res://Assets/images/Lore/this_is_bilo_backwards_sheet.png" id="3_wn845"]
+[ext_resource type="AudioStream" uid="uid://rxrmxsa82sll" path="res://Assets/sound/Dialog/this is bilo.ogg" id="4_w2hhq"]
+[ext_resource type="Texture2D" uid="uid://coekqvoa2hnuk" path="res://Assets/images/Lore/azamats summit.png" id="5_a82nc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w2hhq"]
 atlas = ExtResource("3_wn845")
@@ -707,20 +709,209 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2801q")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 40.0
 }]
 
+[sub_resource type="Animation" id="Animation_a82nc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutScene Root/Bilo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(183, 261)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutScene Root/Bilo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.13525389, 0.13525389)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutScene Root/This Is Bilo:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CutScene Root/This Is Bilo Dialog:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CutScene Root/This Is Bilo:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_on6tn"]
+resource_name = "intro_lore"
+length = 3.5000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CutScene Root/Bilo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(183, 261)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutScene Root/Bilo:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.13525389, 0.13525389)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutScene Root/This Is Bilo:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.1666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CutScene Root/This Is Bilo:sprite_frames")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CutScene Root/This Is Bilo:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CutScene Root/This Is Bilo Dialog:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CutScene Root/This Is Bilo")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 3.2333333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"", 1.0, false],
+"method": &"play"
+}, {
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CutScene Root/This Is Bilo Dialog")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_551ev"]
+_data = {
+&"RESET": SubResource("Animation_a82nc"),
+&"intro_lore": SubResource("Animation_on6tn")
+}
+
 [node name="LoreDump" type="Node2D" unique_id=2091518827]
 script = ExtResource("1_lr2j5")
 
-[node name="Bilo" type="Sprite2D" parent="." unique_id=36435964]
-position = Vector2(476, 218)
+[node name="CutScene Root" type="Node2D" parent="." unique_id=1964701997]
+
+[node name="Bilo" type="Sprite2D" parent="CutScene Root" unique_id=36435964]
+texture_filter = 4
+position = Vector2(183, 261)
+scale = Vector2(0.13525389, 0.13525389)
 texture = ExtResource("1_yjdjk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=6388206]
+[node name="This Is Bilo" type="AnimatedSprite2D" parent="CutScene Root" unique_id=6388206]
+position = Vector2(354.00003, 295)
+scale = Vector2(0.52441406, 0.52441406)
 sprite_frames = SubResource("SpriteFrames_dfpyd")
-autoplay = "default"
-frame = 99
-frame_progress = 1.0
+
+[node name="This Is Bilo Dialog" type="AudioStreamPlayer2D" parent="CutScene Root" unique_id=618186888]
+stream = ExtResource("4_w2hhq")
+
+[node name="Azamats Summit" type="Sprite2D" parent="CutScene Root" unique_id=1642489548]
+visible = false
+texture = ExtResource("5_a82nc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1039473588]
+libraries/ = SubResource("AnimationLibrary_551ev")

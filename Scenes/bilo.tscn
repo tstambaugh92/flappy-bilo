@@ -1,8 +1,88 @@
 [gd_scene format=3 uid="uid://0ipbufyancmb"]
 
-[ext_resource type="Texture2D" uid="uid://cg5xfmv5snvok" path="res://Assets/images/bilo.png" id="1_t64um"]
 [ext_resource type="Script" uid="uid://bsbhb50c1h6im" path="res://Scripts/bilo.gd" id="2_gdlyq"]
+[ext_resource type="Texture2D" uid="uid://bmep72ft8rkwc" path="res://Assets/images/Bilo/bilo.png" id="2_vhur6"]
+[ext_resource type="Texture2D" uid="uid://buu7npkvvwvao" path="res://Assets/images/Bilo/jump_sheet.png" id="3_8vhes"]
 [ext_resource type="AudioStream" uid="uid://cp1gbr26ro33d" path="res://Assets/sound/death.wav" id="3_vhur6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckblu"]
+atlas = ExtResource("3_8vhes")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hgml"]
+atlas = ExtResource("3_8vhes")
+region = Rect2(1024, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh5nq"]
+atlas = ExtResource("3_8vhes")
+region = Rect2(2048, 0, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gf6l"]
+atlas = ExtResource("3_8vhes")
+region = Rect2(0, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eys3t"]
+atlas = ExtResource("3_8vhes")
+region = Rect2(1024, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n35l"]
+atlas = ExtResource("3_8vhes")
+region = Rect2(2048, 1024, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v25bx"]
+atlas = ExtResource("3_8vhes")
+region = Rect2(0, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvaay"]
+atlas = ExtResource("3_8vhes")
+region = Rect2(1024, 2048, 1024, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmtrm"]
+atlas = ExtResource("3_8vhes")
+region = Rect2(2048, 2048, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cq7oa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vhur6")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckblu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hgml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh5nq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gf6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eys3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n35l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v25bx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvaay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmtrm")
+}],
+"loop": 0,
+"name": &"jump",
+"speed": 15.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdlyq"]
 size = Vector2(613, 531)
@@ -10,9 +90,12 @@ size = Vector2(613, 531)
 [node name="Bilo" type="CharacterBody2D" unique_id=399946387]
 script = ExtResource("2_gdlyq")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=767878427]
+[node name="BilosAnimation" type="AnimatedSprite2D" parent="." unique_id=1074341321]
 texture_filter = 4
-texture = ExtResource("1_t64um")
+sprite_frames = SubResource("SpriteFrames_cq7oa")
+animation = &"jump"
+frame = 8
+frame_progress = 1.0
 flip_h = true
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1490629845]

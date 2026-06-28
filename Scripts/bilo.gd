@@ -4,6 +4,13 @@ extends CharacterBody2D
 var gravity : float = 981
 var jumpForce : float = 350
 var score : int = 0
+var rotation_degrees_per_sec : float = 0 #deg/s
+const rotation_impulse : float = 60.0 #deg/s - The amount added by a jump
+const rotation_slow : float = rotation_impulse / 0.85 #degrees/s^2, divided by X seconds to decay over that time
+#These numbers were all just played with until one set felt good.
+
+
+@onready var animation : AnimatedSprite2D = $"BilosAnimation"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,10 +23,20 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
-	rotation_degrees = rotation_degrees + 90.0 * delta
+
+	if rotation_degrees_per_sec > 0.0:
+		rotation_degrees_per_sec = move_toward(rotation_degrees_per_sec,0.0,rotation_slow*delta)
 
 	if Input.is_action_just_pressed("jump"):
 		velocity.y = - jumpForce
+		if not animation.is_playing():
+			animation.play("jump")
+			rotation_degrees_per_sec += rotation_impulse
+			if rotation_degrees_per_sec > 360.0:
+				rotation_degrees_per_sec = 360.0
+
+	rotation_degrees += rotation_degrees_per_sec * delta #we're in radians, I guess
+			
 		
 	move_and_slide()
 

@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://kjs45ty5nbvr" path="res://Assets/images/Letters/i base.png" id="3_b26wi"]
 [ext_resource type="Texture2D" uid="uid://dxuj0stc56qqa" path="res://Assets/images/Letters/L.png" id="4_ewknp"]
 [ext_resource type="Texture2D" uid="uid://ceudvkv7hd2u1" path="res://Assets/images/Letters/o.png" id="5_a7jvs"]
+[ext_resource type="Texture2D" uid="uid://bmep72ft8rkwc" path="res://Assets/images/Bilo/bilo.png" id="5_b26wi"]
 [ext_resource type="Texture2D" uid="uid://uo23m3ek8eyo" path="res://Assets/images/Letters/i top.png" id="6_pgam6"]
-[ext_resource type="Texture2D" uid="uid://cg5xfmv5snvok" path="res://Assets/images/bilo.png" id="7_itfcf"]
 [ext_resource type="FontFile" uid="uid://cm00b3n160vij" path="res://Assets/font/danielbd.ttf" id="9_b26wi"]
 
 [sub_resource type="Animation" id="Animation_nn7w8"]
@@ -405,7 +405,7 @@ texture_filter = 4
 position = Vector2(497.99997, 38.999992)
 rotation = 0.26354474
 scale = Vector2(0.2910156, 0.2910156)
-texture = ExtResource("7_itfcf")
+texture = ExtResource("5_b26wi")
 
 [node name="o" type="Sprite2D" parent="Logo Root" unique_id=831465388]
 texture_filter = 4
